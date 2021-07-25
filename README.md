@@ -16,13 +16,13 @@ Ao Finalizar execução dos comandos acima, executar:
 ## Script do Banco de Dados
 Passos para executar script do banco:
 
-docker container exec -it mysql bash -c "mysql -u root -p"
+### `docker container exec -it mysql bash -c "mysql -u root -p"`
 
-informar password: guilherme
-
-use developers;
+informar password: `guilherme`
 
 ```
+use developers;
+
 CREATE TABLE IF NOT EXISTS devs (
                       id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                       nome VARCHAR(100) NOT NULL,
