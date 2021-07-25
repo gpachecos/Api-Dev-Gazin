@@ -7,13 +7,35 @@
 
 No diretório do Projeto  Executar:
 
-## `docker-compose build`
-## `docker-compose up -d`
+### `docker-compose build`
+### `docker-compose up -d`
+### `docker container exec php bash -c "composer install"`
 
 Ao Finalizar execução dos comandos acima, executar:
 
 ## Script do Banco de Dados
-Pasta `SQL`, arquivo `all.sql`. Basta rodar os comandos sqls dentro do banco de dados;
+Passos para executar script do banco:
+
+docker container exec -it mysql bash -c "mysql -u root -p"
+
+informar password: guilherme
+
+use developers;
+
+```
+CREATE TABLE IF NOT EXISTS devs (
+                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                      nome VARCHAR(100) NOT NULL,
+                      sexo CHAR(2) NOT NULL,
+                      idade INT NOT NULL,
+                      hobby VARCHAR(200) NOT NULL,
+                      datanascimento DATE NOT NULL,
+                      PRIMARY KEY(id)
+);
+
+INSERT INTO devs (nome, sexo, idade, hobby, datanascimento)
+VALUES ('Guilherme', 'M', 29, 'Cozinhar', '1991/09/30');
+ ```
 
 # Rotas Disponíveis
 
@@ -43,7 +65,7 @@ Executar no padrão abaixo:
     "hobby": "Cozinhar",
     "datanascimento": "1991-09-30"
   }
-```;
+```
 
 ### Method: `PUT` Host: `http://localhost:8081/developers`
 Esta rota atualiza as informações do desenvolvedor conforme o id informado e os dados no corpo da requisição
@@ -58,7 +80,7 @@ Executar no padrão abaixo:
     "hobby": "Cozinhar",
     "datanascimento": "1991-09-30"
   }
-```;
+```
 
 ### Method: `DELETE` Host: `http://localhost:8081/developers?id=`
 Esta rota exclui um desenvolvedor conforme o id informado;

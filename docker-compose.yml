@@ -8,7 +8,7 @@ services:
            - 3310:3306
         environment: 
          #   MYSQL_USER: guilherme
-         #   MYSQL_DATABASE: potentialcrud
+            MYSQL_DATABASE: developers
          #   MYSQL_PASSWORD: guilherme
             MYSQL_ROOT_PASSWORD: guilherme
 
